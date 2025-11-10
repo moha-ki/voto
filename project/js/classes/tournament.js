@@ -72,8 +72,8 @@ function calculateTeamAverage(players) {
 
 
 function generateTeams() {
-    let numTeams = parseInt(document.getElementById('teamCountInput').value);
-    let teamSize = parseInt(document.getElementById('teamSizeInput').value);
+    let numTeams = parseInt(document.getElementById('field-count-input').value) * 2;
+    let teamSize = parseInt(document.getElementById('team-size-input').value);
     var teams = [];
     //refinement for many players here
     let playerPool = tournament.getFairPlayerPool(numTeams * teamSize);
