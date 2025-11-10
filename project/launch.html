@@ -37,7 +37,15 @@
     </div>    
     <div id="fields-tab" class="tab">
         <h2>Felder</h2>
-        <button type="button" onclick="generateTeams()">Neue Teams</button>
+        <div class="fieldsControls">
+            <button type="button" id="generate-teams-btn" onclick="generateTeams()">Neue Teams</button>
+            <div id="timer">
+                <span id="current-minutes">10</span>
+                <span>:</span>
+                <span id="current-seconds">00</span>
+            </div>
+            <button type="button" id="start-game-btn" onclick="startGames()">Start</button>
+        </div>
     </div>
     <div id="settings-tab" class="tab">
         <h2>Einstellungen</h2>
@@ -50,6 +58,10 @@
                 <label for="field-count-input">Anzahl Felder</label>
                 <input id="field-count-input" type="number" value="3" onchange="generateOrUpdateFields()">
             </li>
+            <li class="setting">
+                <label for="timer-input">Spieldauer</label>
+                <input id="timer-input" type="number" value="10">
+            </li>
         </ul>
     </div>    
 </body>
@@ -58,3 +70,4 @@
 <script src="js/basics.js"></script>
 <script src="js/ui/player-tab.js"></script>
 <script src="js/ui/fields-tab.js"></script>
+<script src="js/ui/fields-controls.js"></script>
