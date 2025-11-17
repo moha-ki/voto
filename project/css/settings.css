@@ -5,7 +5,6 @@
     }
     ul#settings {
         list-style: none;
-        width: 30%;
         li {
             padding: 10px;
             display: flex;
@@ -13,10 +12,14 @@
             font-size: 30px;
 
             label {
-                flex: auto;
+                flex: 5;
+                p.settings-description {
+                    font-size: 16px;
+                    margin-top: 5px;
+                }
             }
             input {
-                flex: initial;
+                flex: 1;
                 border: none;
                 border-radius: 15px;
                 height: 35px;
