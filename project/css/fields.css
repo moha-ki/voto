@@ -20,3 +20,34 @@
         font-weight: 700;    
     }
 }
+
+#fields-container {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 5%;
+}
+
+.field {
+
+    hr {
+        margin: 0;
+        border: solid 1px white;
+    }
+
+    .team {
+        height: 40vh;
+        border: solid 1px white;
+    }
+
+    .team1 {
+        border-top-left-radius: 15px;
+        border-top-right-radius: 15px;
+        background-color: lightseagreen;
+    }
+
+    .team2 {
+        background-color: #e64946;
+        border-bottom-left-radius: 15px;
+        border-bottom-right-radius: 15px;
+    }
+}

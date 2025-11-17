@@ -50,11 +50,11 @@ function generateField(field_number) {
     let field = document.createElement('div');
     field.classList.add('field');
     field.dataset.number = field_number;
-    fields_tab.append(field);
+    fields_tab.querySelector('#fields-container').append(field);
     let team1 = document.createElement('div');
     let team2 = document.createElement('div');
-    team1.classList.add('team1');
-    team2.classList.add('team2');
+    team1.classList.add('team', 'team1');
+    team2.classList.add('team', 'team2');
     let hrule = document.createElement('hr');
     field.append(team1);
     field.append(hrule);

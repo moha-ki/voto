@@ -5,7 +5,7 @@ function startGames() {
     rerollBtn.classList.add('inactive');
     rerollBtn.disabled = true;
     let startBtn = document.getElementById('start-game-btn');
-    startBtn.textContent = "Stop";
+    startBtn.textContent = "Reset";
     startBtn.onclick = resetTimer;
     let duration = parseInt(document.getElementById('timer-input').value);
     let minutesDisplay = document.getElementById('current-minutes');

@@ -18,7 +18,7 @@
         <h2>Spieler</h2>
         <div class="newPlayer">
             <input id="player-name-input" class="pName" placeholder="Name">
-            <input id="player-level-input" type="number" placeholder="Level">
+            <input id="player-level-input" type="number" placeholder="Level" min="1">
             <button type="button" onclick="addNewPlayer()">Hinzufügen</button>
         </div>
         <div class="allPlayers">
@@ -46,21 +46,22 @@
             </div>
             <button type="button" id="start-game-btn" onclick="startGames()">Start</button>
         </div>
+        <div id="fields-container"></div>
     </div>
     <div id="settings-tab" class="tab">
         <h2>Einstellungen</h2>
         <ul id="settings">
             <li class="setting">
                 <label for="team-size-input">Team-Größe</label>
-                <input id="team-size-input" type="number" class="tSize" value="6" onchange="generateOrUpdateFields()">
+                <input id="team-size-input" type="number" class="tSize" value="6" onchange="generateOrUpdateFields()" min="1" max="6">
             </li>
             <li class="setting">
                 <label for="field-count-input">Anzahl Felder</label>
-                <input id="field-count-input" type="number" value="3" onchange="generateOrUpdateFields()">
+                <input id="field-count-input" type="number" value="3" onchange="generateOrUpdateFields()" min="1">
             </li>
             <li class="setting">
-                <label for="timer-input">Spieldauer</label>
-                <input id="timer-input" type="number" value="10">
+                <label for="timer-input">Spieldauer (min)</label>
+                <input id="timer-input" type="number" value="10" min="1">
             </li>
         </ul>
     </div>    
