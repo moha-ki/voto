@@ -34,7 +34,7 @@ const tournament = new Tournament();
 var nameField = document.getElementById('player-name-iniput');
 var teamField = document.getElementById('player-level-input');
 var playerList = document.getElementById('playerList');
-
+document.getElementById("generate-teams-btn").onclick = function() {tournament.generateTeams();};
 //Root path constant
 const root_dir = window.location.pathname.replace(/[^\\\/]*$/, '');
 

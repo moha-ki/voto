@@ -94,3 +94,5 @@ function createPlayer(field, team, number) {
     player_element.dataset.number = number;
     field.querySelector('.team'+team).append(player_element);
 }
+
+generateOrUpdateFields();

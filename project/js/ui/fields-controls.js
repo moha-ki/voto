@@ -11,7 +11,7 @@ function startGames() {
     let minutesDisplay = document.getElementById('current-minutes');
     let secondsDisplay = document.getElementById('current-seconds');
     let totalSeconds = duration * 60;
-
+    tournament.playGames();
     durationInterval = setInterval(() => {
         minutesDisplay.textContent = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
         secondsDisplay.textContent = (totalSeconds % 60).toString().padStart(2, '0');
