@@ -171,6 +171,7 @@ class Tournament {
             }
             //check if the difference in levels is too large - if so, restart team generation
             if (Math.abs(levelA-levelB) > this.getFairness()) {
+                console.log("Teams not fair enough(" + levelA + " vs " + levelB +"), regenerating teams...");
                 return this.generateTeams(false);
             }
         }
