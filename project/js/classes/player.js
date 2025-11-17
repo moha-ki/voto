@@ -1,7 +1,7 @@
 class Player {
-    constructor(name, team) {
+    constructor(name, level) {
         this.name = name;
-        this.team = parseInt(team);
+        this.level = parseInt(level);
         this.gamesPlayed = 0;
         this.playedLast = false;
     }
