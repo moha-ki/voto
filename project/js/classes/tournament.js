@@ -20,6 +20,39 @@ class Tournament {
         this.players.push(player);
     }
 
+    isPlayerInTournament(pName) {
+        for (let p of this.players) {
+            if (p.name === pName) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    isPlayerInPool(pName) {
+        for (let p of this.pool) {
+            if (p.name === pName) {
+                return true;
+            }
+        }
+        return false;
+    }
+
+    swapPlayer(oldPlayerName, newPlayerName) {
+        let newPlayer = null;
+        for (let p of this.players) {
+            if (p.name === newPlayerName) {
+                newPlayer = p;
+                break;
+            }
+        }
+        for (let i = 0; i < this.pool.length; i++) {
+            if (this.pool[i].name === oldPlayerName) {
+                this.pool[i] = newPlayer;
+            }
+        }
+    }
+
     /**
      * @param {*} pName | Name of the player to be removed
      */
@@ -148,15 +181,15 @@ class Tournament {
         for (let i = 0; i < teams.length; i++) {
             let side = i % 2 == 0 ? '.team1' : '.team2';
             let fieldNum = Math.floor(i / 2) + 1;
-            console.log('.field[data-number="' + fieldNum + '"]' + side)
             let teamDiv = document.querySelector('.field[data-number="' + fieldNum + '"] ' + side);
             for (let j = 0; j < teams[i].length; j++) {
-                let playerSpan = teamDiv.querySelector('.player[data-number="' + (j + 1) + '"]');
+                let playerSpan = teamDiv.querySelector('.player[data-number="' + (j + 1) + '"] .player-name');
                 playerSpan.textContent = teams[i][j].name;
             }
         }
     }
 }
+
 function testSetup() {
     for (let i = 1; i < 40; i++) {
         p = new Player('player'+i, i%8 + 1);

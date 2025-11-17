@@ -92,7 +92,30 @@ function createPlayer(field, team, number) {
     let player_element = document.createElement('span');
     player_element.classList.add('player');
     player_element.dataset.number = number;
+    let pName = document.createElement('span');
+    pName.classList.add('player-name');
+    player_element.appendChild(pName);
+    let switchIcon = new Image (24,24);
+    switchIcon.src = root_dir + "/assets/switch_player.png";
+    switchIcon.onclick = function() {swapPlayer(player_element);};
+    player_element.appendChild(switchIcon);
     field.querySelector('.team'+team).append(player_element);
+}
+
+function swapPlayer(oldPlayer) {
+    const oldPlayerName = oldPlayer.querySelector('.player-name').innerText;
+    let newPlayer = prompt("Wer soll statt " + oldPlayerName + " spielen?");
+    if (tournament.isPlayerInTournament(newPlayer) && !tournament.isPlayerInPool(newPlayer)) {
+        tournament.swapPlayer(oldPlayerName, newPlayer);
+        document.querySelectorAll('.player-name').forEach( pName => {
+            if (pName.innerText === oldPlayer.querySelector('.player-name').innerText) {
+                pName.innerText = newPlayer;
+            }
+        });
+    }
+    else {
+        alert("Der Spieler " + newPlayer + " ist entweder nicht im Turnier oder bereits im Spielfeld-Pool.");
+    }
 }
 
 generateOrUpdateFields();
