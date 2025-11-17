@@ -109,4 +109,7 @@ button.inactive:hover {
         z-index:0;
         margin-top: 6px;
     }
+    &.prio-active {
+        background: linear-gradient(to right, #e64946, rgb(142, 160, 155), rgba(116, 185, 180, 0));
+    }
 }

@@ -97,6 +97,7 @@ function createPlayer(field, team, number) {
     player_element.appendChild(pName);
     let switchIcon = new Image (24,24);
     switchIcon.src = root_dir + "/assets/switch_player.png";
+    switchIcon.title = "Spieler tauschen";
     switchIcon.onclick = function() {swapPlayer(player_element);};
     player_element.appendChild(switchIcon);
     field.querySelector('.team'+team).append(player_element);

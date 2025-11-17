@@ -31,8 +31,12 @@ function refreshPlayerList() {
         priorityBtn = document.createElement('button');
         priorityIcon = new Image (24,24);
         priorityIcon.src = root_dir + "/assets/arrow-up.svg";
+        priorityIcon.title = "Spieler priorisieren";
         priorityBtn.appendChild(priorityIcon);
         priorityBtn.classList.add('btn-priority');
+        if (p.priority) {
+            priorityBtn.classList.add('prio-active');
+        }
         priorityBtn.onclick = function(){p.priority = !p.priority; refreshPlayerList();};
         deleteBtn = document.createElement('button');
         deleteIcon = new Image (24, 24);
