@@ -14,10 +14,20 @@ h2 {
 html {
     height: 100%;
 }
+:root {
+    --colour-background: lightcoral;
+    --colour-font1: #f2f2f2;
+    --colour-accent1: steelblue;
+    --colour-accent2: lightseagreen;
+    --colour-text: #f2f2f2;
+    --colour-inactive: #7a7a7a;
+    --colour-background-inactive: #d3d3d3;
+    --colour-outline: #080505;
+}
 body {
-    background: lightcoral;
+    background: var(--colour-background);
     font-family: "Helvetica Neue", Helvetica, Arial;
-    color: #f2f2f2;
+    color: var(--colour-text);
     height: 100%;
 }
 
@@ -27,10 +37,10 @@ body {
     max-width: 1550px;
     padding: 25px;
     border-radius: 25px;
-    background-color: steelblue;
+    background-color: var(--colour-accent1);
 
     h2 {
-        color: #e64946;
+        color: var(--colour-background);
         margin-top: 0;
         margin-bottom: 25px;
     }
@@ -52,22 +62,23 @@ body {
     max-width: 1600px;
     display: flex;
     width: 100%;
-    background-color: lightgreen;
+    background-color: var(--colour-accent2);
     border-radius: 25px;
     margin-bottom: 25px;
     gap: 2px;
+    font-weight: 700;
 }
 
 .tabs .tab-selector {
     flex: auto;
     text-align: center;
-    background-color: lightseagreen;
+    background-color: var(--colour-accent2);
     &:hover {
         cursor: pointer;
     }
 
     &.active {
-        background-color: steelblue;
+        background-color: var(--colour-accent1);
     }
 }
 

@@ -11,7 +11,7 @@
     border-radius: 35px;
     margin: 25px 0;
     padding: 10px;
-    border: 1px solid black;
+    border: 1px solid var(--colour-outline);
     
     input, button {
         border: none;
@@ -30,10 +30,11 @@
 }
 
 input:focus {
-    background: linear-gradient(to right, #e64946, lightgray);
+    background: linear-gradient(to right, var(--colour-background),  var(--colour-background-inactive));
     outline: none;
     -moz-appearance: textfield;
-    color:#080505;
+    color: var(--colour-outline);
+    font-weight:700;
 }
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
@@ -41,29 +42,29 @@ input::-webkit-inner-spin-button {
     margin: 0;
 }
 button {
-    background: #e64946;
+    background: var(--colour-background);
     font-weight: 700;
     border: none;
 }
 button:hover {
     cursor: pointer;
-    background: linear-gradient(to right, #e64946, #e64946, rgb(102, 199, 194));
-    color: #f2f2f2;
+    background: linear-gradient(to right, var(--colour-background), var(--colour-background), var(--colour-accent2));
+    color: var(--colour-font1);
     outline: none;
 }
 button:active {
     background: #121212;
 }
 button.inactive {
-    background-color: #d3d3d3;
-    color: #7a7a7a !important;
+    background-color: var(--colour-background-inactive);
+    color: var(--colour-inactive) !important;
     cursor: not-allowed;
 }
 button.inactive:hover {
-    background:#d3d3d3;
+    background: var(--colour-background-inactive);
 }
 .allPlayers {
-    background: linear-gradient( to bottom left, rgb(102, 199, 194), #e64946);
+    background: linear-gradient( to bottom left, var(--colour-accent2), var(--colour-background));
     border-radius: 25px;
     min-height: 350px;
 
@@ -103,7 +104,7 @@ button.inactive:hover {
     width: 50%;
     border-radius: 15px;
     &:hover {
-        background: linear-gradient(to right, #e64946, rgb(142, 160, 155), rgba(116, 185, 180, 0));
+        background: linear-gradient(to right, var(--colour-background), rgb(142, 160, 155), rgba(116, 185, 180, 0));
     }
     img {
         z-index:0;
