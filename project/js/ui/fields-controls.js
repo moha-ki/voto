@@ -1,4 +1,5 @@
 var durationInterval;
+var halfDuration;
 
 function startGames() {
     let rerollBtn = document.getElementById('generate-teams-btn');
@@ -10,15 +11,22 @@ function startGames() {
     let duration = parseInt(document.getElementById('timer-input').value);
     let minutesDisplay = document.getElementById('current-minutes');
     let secondsDisplay = document.getElementById('current-seconds');
-    let totalSeconds = duration * 60;
+    let currentSeconds = duration * 60;
+    halfDuration = Math.floor(currentSeconds / 2);
+    console.log("current:", currentSeconds, "half:", halfDuration);
     tournament.playGames();
     durationInterval = setInterval(() => {
-        minutesDisplay.textContent = Math.floor(totalSeconds / 60).toString().padStart(2, '0');
-        secondsDisplay.textContent = (totalSeconds % 60).toString().padStart(2, '0');
-        if(totalSeconds <= 0) {
+        minutesDisplay.textContent = Math.floor(currentSeconds / 60).toString().padStart(2, '0');
+        secondsDisplay.textContent = (currentSeconds % 60).toString().padStart(2, '0');
+        if(currentSeconds < halfDuration) {
+            rerollBtn.classList.remove('inactive');
+            rerollBtn.disabled = false;
+            halfDuration = -1; // Ensure this block only runs once
+        }
+        if(currentSeconds <= 0) {
             resetTimer();
         }
-        totalSeconds--;
+        currentSeconds--;
     }, 1000);
 
 }
@@ -31,8 +39,17 @@ function resetTimer() {
     minutesDisplay.textContent = duration.toString().padStart(2, '0');
     secondsDisplay.textContent = "00";
     document.getElementById('start-game-btn').textContent = "Start";
-    let rerollBtn = document.getElementById('generate-teams-btn');
-    rerollBtn.classList.remove('inactive');
-    rerollBtn.disabled = false;
     document.getElementById('start-game-btn').onclick = startGames;
+    // this is only needed if we cancel the timer before half the duration is passed
+    let rerollBtn = document.getElementById('generate-teams-btn');
+    if(rerollBtn.classList.contains('inactive')) {
+        rerollBtn.classList.remove('inactive');
+        rerollBtn.disabled = false;
+    }
+}
+
+function updateDuration() {
+    let duration = parseInt(document.getElementById('timer-input').value);
+    let minutesDisplay = document.getElementById('current-minutes');
+    minutesDisplay.textContent = duration.toString().padStart(2, '0');
 }

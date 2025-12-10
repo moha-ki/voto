@@ -104,6 +104,11 @@ function createPlayer(field, team, number) {
 }
 
 function swapPlayer(oldPlayer) {
+    rerollBtn = document.getElementById('generate-teams-btn');
+    if (rerollBtn.disabled) {
+        alert("Während eines laufenden Spiels können keine Spieler getauscht werden.");
+        return;
+    }
     const oldPlayerName = oldPlayer.querySelector('.player-name').innerText;
     let newPlayer = prompt("Wer soll statt " + oldPlayerName + " spielen?");
     if (tournament.isPlayerInTournament(newPlayer) && !tournament.isPlayerInPool(newPlayer)) {
