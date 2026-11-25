@@ -8,7 +8,6 @@ function generateOrUpdateFields() {
     let old_num_players = 0;
 
     let fields = fields_tab.querySelectorAll(".field");
-    console.log(fields);
     if (fields.length > 0) {
         old_num_fields = fields.length;
         let players = fields[0].querySelectorAll(".team1 span");
@@ -20,10 +19,6 @@ function generateOrUpdateFields() {
     let new_num_fields = document.querySelector("#settings-tab #field-count-input").value;
     let new_num_players = document.querySelector("#settings-tab #team-size-input").value;
     
-    console.log(old_num_fields);
-    console.log(new_num_fields);
-    console.log(old_num_players);
-    console.log(new_num_players);
     //if the old one is smaller, add the new ones
     if (new_num_fields > old_num_fields) {
         for (let i = old_num_fields + 1; i <= new_num_fields; i++) {
@@ -55,9 +50,19 @@ function generateField(field_number) {
     let team2 = document.createElement('div');
     team1.classList.add('team', 'team1');
     team2.classList.add('team', 'team2');
-    let hrule = document.createElement('hr');
+
+    //seperator in the middle of the field
+    let divider = document.createElement('div');
+    divider.classList.add('field-divider');
+    let field_label = document.createElement('div');
+    divider.append(document.createElement('hr'));
+    divider.append(field_label);
+    divider.append(document.createElement('hr'));
+    field_label.innerText = field_number;
+    field_label.classList.add('field-label');
+
     field.append(team1);
-    field.append(hrule);
+    field.append(divider);
     field.append(team2);
 }
 
@@ -121,6 +126,18 @@ function swapPlayer(oldPlayer) {
     }
     else {
         alert("Der Spieler " + newPlayer + " ist entweder nicht im Turnier oder bereits im Spielfeld-Pool.");
+    }
+}
+
+function updateOrientation() {
+    let labelText = document.getElementById("orientation-input").value;
+    let orientation = document.getElementById("fields-orientation");
+    if (labelText != "") {
+        orientation.innerText = labelText;
+        orientation.style.display = "block";
+    }
+    else {
+        orientation.style.display = "none";
     }
 }
 
